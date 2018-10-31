@@ -174,7 +174,9 @@ spec:
         - name: vault-root
           emptyDir: {}
         - name: vault-file
-          emptyDir: {}
+          hostPath:
+            path: /tmp/vault
+            type: DirectoryOrCreate
         {{- range .Values.vault.customSecrets }}
         - name: {{ .secretName }}
           secret:

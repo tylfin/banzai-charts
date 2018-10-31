@@ -25,6 +25,9 @@ ingress:
   #   - secretName: chart-example-tls
   #     hosts:
   #       - chart-example.local
+persistence:
+  volume:
+    emptyDir: {}
 podAnnotations:
   prometheus.io/scrape: "true"
   prometheus.io/path: "/metrics"
