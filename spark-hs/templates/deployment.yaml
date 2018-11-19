@@ -4,7 +4,7 @@
   {{- else if eq .Values.sparkEventLogStorage.cloudProvider "alibaba"}}
     {{- printf "oss://%s" .Values.sparkEventLogStorage.logDirectory }}
   {{- else if eq .Values.sparkEventLogStorage.cloudProvider "azure"}}
-    {{- printf "wasb://%s@%s.blob.core.windows.net" .Values.sparkEventLogStorage.logDirectory .Values.sparkEventLogStorage.azureStorageAccountName }}
+    {{- printf "wasb://%s@$storageAccount.blob.core.windows.net" .Values.sparkEventLogStorage.logDirectory }}
   {{- else if eq .Values.sparkEventLogStorage.cloudProvider "google"}}
     {{- printf "gs://%s" .Values.sparkEventLogStorage.logDirectory }}
   {{- else if eq .Values.sparkEventLogStorage.cloudProvider "oracle"}}
