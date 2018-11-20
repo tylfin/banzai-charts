@@ -56,7 +56,7 @@ spec:
           - name: SPARK_NO_DAEMONIZE
             value: "false"
           - name: SPARK_HISTORY_OPTS
-            value: {{ printf "-Dspark.history.fs.logDirectory=%s" (include "logDirectoryTag" . )}}
+            value: {{ printf "-Dspark.history.fs.logDirectory=%s -Dspark.history.fs.update.interval=30s" (include "logDirectoryTag" . )}}
         volumeMounts:
           - name: config-volume
             mountPath: /opt/spark/conf/spark-defaults.conf
